@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="mainportcss.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        scroll-behavior: smooth;
+        font-family:'Inter',sans-serif;
+    }
+    :root{
+        --bg-color:white;
+        --text-color:rgb(61, 61, 61);
+        --main-color: rgb(200, 0, 200);
+        --white-color: white;
+        --shadow-color: rgba(0, 0, 0,.2);
+    }
+    html{
+        font-size: 62.5%;
+        overflow-x: hidden;
+    }
+    body{
+        background: url('/Wireframe\ -\ 1.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        color:var(--text-color);
+    }
+    .padd-15{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 10%;
+        background-color: var(--bg-color);
+        box-shadow: 0 .2rem .5rem var(--shadow-color);
+        display: flex;
+        align-items: center;
+        z-index: 100;
+    }
+    .logo{
+        font-size: 20px;
+        color: var(--main-color);
+        font-weight: 600;
+        cursor: default;
+        margin-right: auto;
+    }
+    .navbar a{
+        position: relative;
+        font-size: 18px;
+        color: var(--text-color);
+        font-weight: 500;
+        margin-right: 56px;
+    }
+    .navbar a.active::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 2px;
+        background: var(--text-color);
+    }
+    #menu-icon{
+        font-size: 3.6rem;
+        color: var(--text-color);
+        display: none;
+    }
+    section{
+        min-height: 100vh;
+        padding:160px 7% 32px;
+    }
+    .home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .home .home-content{
+        max-width: 44rem;
+    }
+    .home-content h1{
+        font-size: 56px;
+        font-weight: 600;
+    }
+    .home-content h4{
+        font-size: 23px;
+        font-weight: 600;
+    }
+    .home-content p{
+        font-size: 16px;
+        text-align: justify;
+
+    }
+    .home-content .socials a{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        background: transparent;
+        border: 2px solid var(--main-color);
+        border-radius: 50%;
+        box-shadow: 0 .2rem .5rem var(--shadow-color);
+        font-size: 2rem;
+        color: var(--main-color);
+        margin: 2.5rem 1.5rem 3rem 0;
+        transition: .5s ease;
+    }
+    .home-content .socials a:hover{
+        background: var(--main-color);
+        color:var(--white-color)
+    }
+    .btn{
+        display: inline-block;
+        padding: 1.2rem 1.8rem;
+        background:  var(--main-color);
+        border-radius: .6rem;
+        box-shadow: 0 .2rem .5rem var(--shadow-color);
+        font-size: 1.6rem;
+        color: var(--white-color);
+        letter-spacing: .1rem;
+        font-weight: 600;
+        border: .2rem solid transparent;
+    }
+    .btn:hover{
+        background: transparent;
+        color:var(--main-color);
+        border-color: var(--main-color);
+    }
+    .image{
+        width:378px;
+        height:344px;
+        padding-left:100px;
+    }
+    .container{
+        max-width: 1100px;
+        width:100%;
+        margin:auto;
+    }
+    .section .container{
+        padding-top: 60px;
+        padding-bottom: 70px;
+    }
+    .section-title{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .section-title h2{
+        margin-bottom: 10px;
+        text-align: left;
+        font-size: 40px;
+        color:var(--text-color);
+        text-decoration: solid;
+        font-weight:1200;
+        text-align: center;
+    }
+    .section-title span{
+        color:var(--main-color)
+    }
+    .about .about-content{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .about .about-content .about-text{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .about .about-content .about-text h3{
+        font-size: 22px;
+        margin-bottom: 15px;
+        font-weight: 700;
+        color: var(--text-color);
+    }
+    .about .about-content .about-text h3 span{
+        color:var(--main-color);
+        align-content: center;
+    }
+    .about .about-content .about-text p{
+        font-size: 16px;
+        line-height: 25px;
+        color: var(--text-color);
+        text-align: justify;
+    }
+    .about .row-cont{
+        display: flex;
+    }
+    .about .about-content .personal-info{
+        flex: 0 0 60%;
+        max-width: 60%;
+        margin-top: 40px;
+    }
+    .about .about-content .personal-info .info-item{
+        flex: 0 0 450%;
+        max-width: 50%;
+    }
+    .about .about-content .personal-info .info-item p{
+        font-weight: 600;
+        padding: 10px 0;
+        font-size: 16px;
+        color: var(--text-color);
+        border-bottom: .1px solid rgb(205, 205, 205); 
+    }
+    .about .about-content .personal-info .info-item p span{
+        font-weight: 400;
+        margin-left: 4px;
+    }
+    .about .about-content .skills{
+        flex: 0 0 40%;
+        max-width: 40%;
+        margin-top: 40px;
+    }
+    .about .about-content .skills .skill-item{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .about .about-content .skills .skill-item h5{
+        line-height: 40px;
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--text-color);
+        text-transform: capitalize;
+    }
+    .about .about-content .skills .skill-item .progress{
+        background-color: var(--shadow-color);
+        height: 7px;
+        border-radius: 4px;
+        width: 100%;
+        position: relative;
+    }
+    .about .about-content .skills .skill-item
+    {
+        margin-bottom: 25px;
+    }
+    .about .about-content .skills .skill-item .progress .progress-in{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        border-radius: 4px;
+        background-color: var(--main-color);
+    }
+    .about .about-content .skills .skill-item .skill-per{
+        position: absolute;
+        right: 0;
+        color: var(--text-color);
+        top: -40px;
+        font-weight: 400;
+        line-height: 40px;
+    }
+    .about .about-content .education, .about .about-content .experience{
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-top: 30px;
+    }
+    .about .about-content h3.title{
+        font-size: 24px;
+        margin-bottom: 30px;
+        font-weight: 700;
+        color: var(--text-color);
+    }
+    .about .about-content .timeline-box{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .edu-content{
+        text-align: left;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 15%;
+        padding-left: 0%;
+    }
+    .year1{
+        background-color: var(--bg-color);
+        border: 2px solid var(--main-color);
+        border-radius: .6rem;
+        padding: 8px;
+        font-size: 16px;
+    }
+    .year2{
+        background-color: var(--bg-color);
+        border: 2px solid var(--main-color);
+        padding: 8px;
+        font-size: 16px;
+        border-radius: .6rem;
+    }
+    .year3{
+        background-color: var(--bg-color);
+        border: 2px solid var(--main-color);
+        padding: 8px;
+        font-size: 16px;
+        border-radius: .6rem;
+    }
+    .edubox{
+        padding-top: 30px;
+    }
+    .shadow{
+        box-shadow: 0 0 2px var(--shadow-color);
+    }
+    .year2e{
+        background-color: var(--bg-color);
+        margin-top: 33px;
+        border: 2px solid var(--main-color);
+        padding: 8px;
+        font-size: 16px;
+        border-radius: .6rem;
+    }
+    .year1edu{
+        border: 2px solid var(--main-color);
+        border-radius: .6rem;
+        padding: 8px;
+        font-size: 16px;
+    }
+    .edubox2{
+        padding-top: 0;
+    }
+    .services .services-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+    .services-container .services-box {
+        margin-top: 26px;
+        flex-grow: 0;
+        background-color: var(--bg-color);
+        padding: 3rem 2rem 4rem;
+        border-radius: 3rem;
+        box-shadow: 0 .1rem .5rem var(--shadow-color);
+        text-align: center;
+        border-top: .6rem solid var(--main-color);
+        border-bottom: .6rem solid  var(--main-color);
+        transition: .5s ease;
+    }
+    .services-container .services-box:hover{
+        box-shadow: 0 .1rem 2rem var(--shadow-color);
+        transform: scale(1.02);
+    }
+    .services-box i{
+        font-size: 7rem;
+        color: var(--main-color);
+    }
+    .services-box h3{
+        font-size: 2.6rem;
+        transition: .5s ease;
+    }
+    .services-box:hover h3{
+        color: var(--main-color);
+    }
+    .services-box p{
+        font-size: 1.6rem;
+        margin: 1rem 0 3rem;
+        justify-content: center;
+    }
+    .projects .section-title{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .projects .section-title h2{
+        margin-bottom: 20px;
+        text-align: left;
+        font-size: 40px;
+        color:var(--text-color);
+        text-decoration: solid;
+        font-weight:1200;
+        text-align: center;
+    }
+    .projects .section-title span{
+        color:var(--main-color)
+    }
+    .about .about-content{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .projects{
+        padding-bottom: 10rem;
+    }
+    .projects h2{
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+    }
+    .projects .project-container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        align-items: center;
+        gap: 2.4rem;
+    }
+    .project-container .project-box{
+        position: relative;
+        display: flex;
+        border-radius: 2rem;
+        box-shadow: 0 0 1rem var(--shadow-color);
+        overflow: hidden;
+    }
+    .project-box img{
+        width: 100%;
+        transition: .5s ease;
+    }
+    .project-box:hover img{
+        transform: scale(1.1);
+    }
+    .project-box .project-layer{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0,0,0,.1),var(--main-color));
+        color: var(--white-color);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 0 4rem;
+        justify-content: center;
+        opacity: 0;
+        transition: .5s ease;
+    }
+    .project-box:hover .project-layer{
+        opacity: 1;
+    }
+    .project-layer p{
+        font-size: 1.6rem;
+        margin: .3rem 0 1rem;
+    }
+    .project-layer a{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 5rem;
+        height: 5rem;
+        background-color: var(--white-color);
+        border-radius: 50%;
+    }
+    .project-layer a i{
+        font-size: 2rem;
+        color: #333;
+    }
+    .contact{
+        color: var(--text-color);
+        justify-content: center;
+        align-items: center;
+        padding: 0 10%;
+        padding-bottom: 10%;
+    }
+    .contact form {
+        max-width: 70rem;
+        margin: 1rem auto;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .contact form .inp-box{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .contact form .inp-box input, .contact form textarea{
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.5rem;
+        color:var(--text-color);
+        background: var(--bg-color);
+        border-radius: .8rem;
+        margin: .7rem 0;
+        box-shadow: 0 .1rem .5rem var(--shadow-color);
+    }
+    .contact form .inp-box input{
+        width: 49%;
+    }
+    .contact form textarea{
+        resize: none;
+    }
+    .contact form .btn{
+        margin-top: 2rem;
+        cursor: pointer;
+    }
+    
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2rem 7%;
+        background: var(--main-color);
+    }
+    .footer-text p {
+        font-size: 1.6rem;
+        color: var(--white-color);
+    }
+    .footer-icontop a{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: .8rem;
+        background: var(--white-color);
+        border: .2rem solid var(--main-color);
+        border-radius: .8rem;
+        outline: .2rem solid transparent;
+        transition: .5s ease;
+    }
+    .footer-icontop:hover a{
+        outline-color: var(--white-color);
+    }
+    .footer-icontop a i{
+            font-size: 2.4rem;
+            color: #333;
+    }
+</style>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/661d61f81ec1082f04e29a86/1hrhcdd0f';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Parnika Kothari</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="home-content">
+            <h4>Hello I am</h4>
+            <h1>Parnika Kothari</h1>
+            <h4>Frontend Developer | UI/UX Designer</h4>
+            <p>Aspiring web developer and dedicated UI/UX enthusiast. Feel free to reach out anytime—I welcome connections and opportunities for collaboration.</p>
+            <div class="socials">
+                <a href="https://www.linkedin.com/in/parnika-kothari-7421a2275/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+                
+                <a href="https://www.instagram.com/parnika_kotari/?hl=en" target="_blank"><i class='bx bxl-instagram' ></i></a>
+            </div>
+            <a href="resume.pdf" download  class="btn">Download Resume</a>
+
+        </div>
+        <div>
+            <img class="image" src="p7.jpg">
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2>About<span> Me</span></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="about-content">
+                    <div class="row">
+                        <div class="about-text">
+                            <h3>Greetings! I'm Parnika Kothari, a dedicated <span>Web Developer</span> and <span>UI/UX Design</span> Enthusiast</h3>
+                            <p>Proficient in various programming languages, I enjoy tackling challenges head-on and crafting clean, scalable code. Whether it's building responsive websites or optimizing performance, I am committed to delivering seamless user experiences.Along with web development, I'm also a creative UI/UX enthusiast, passionate about crafting visually appealing and intuitive user interfaces. Design, for me, is not just a job but a form of artistic expression. I believe in the transformative power of user-centric design to elevate digital experiences.Let's collaborate to bring your vision to life!</p>
+                        </div>
+                    </div>
+                    <div class="row-cont">
+                        <div class="personal-info padd-15">
+                            <div class="row">
+                                <div class="info-item padd-15">
+                                    <p>Birthday : <span>15 September 2004</span></p>
+                                </div>
+                                <div class="info-item padd-15">
+                                    <p>Age : <span>19</span></p>
+                                </div>
+                                <div class="info-item padd-15">
+                                    <p>Email : <span>kothariparnika15@gmail.com</span></p>
+                                </div>
+                                <div class="info-item padd-15">
+                                    <p>Degree : <span>Computer Science and Engineering</span></p>
+                                </div>
+                                <div class="info-item padd-15">
+                                    <p>Phone : <span>9691800675</span></p>
+                                </div>
+                                <div class="info-item padd-15">
+                                    <p>City : <span>Indore</span></p>
+                                </div>
+                                <div class="info-item padd-15">
+                                    <p>Freelance : <span>Available</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills padd-15">
+                            <div class="row">
+                                <div class="skill-item padd-15">
+                                    <h5>HTML</h5>
+                                    <div class="progress">
+                                        <div class="progress-in" style="width: 76%;"></div>
+                                        <div class="skill-per">76%</div>
+                                    </div>
+                                </div>
+                                <div class="skill-item padd-15">
+                                    <h5>CSS</h5>
+                                    <div class="progress">
+                                        <div class="progress-in" style="width: 52%;"></div>
+                                        <div class="skill-per">52%</div>
+                                    </div>
+                                </div>
+                                <div class="skill-item padd-15">
+                                    <h5>Javascript</h5>
+                                    <div class="progress">
+                                        <div class="progress-in" style="width: 40%;"></div>
+                                        <div class="skill-per">40%</div>
+                                    </div>
+                                </div>
+                                <div class="skill-item padd-15">
+                                    <h5>Python</h5>
+                                    <div class="progress">
+                                        <div class="progress-in" style="width: 55%;"></div>
+                                        <div class="skill-per">55%</div>
+                                    </div>
+                                </div>
+                                <div class="skill-item padd-15">
+                                    <h5>Java</h5>
+                                    <div class="progress">
+                                        <div class="progress-in" style="width: 89%;"></div>
+                                        <div class="skill-per">79%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-cont">
+                        <div class="education padd-15">
+                            <h3 class="title">Education</h3>
+                            <div class="row">
+                                <div class="edu-content">
+                                    <div class="year1">
+                                        <i class='bx bxs-calendar'>2022 - 2026</i>
+                                        <h3>Vellore Institute of Technology, Vellore - Btech, Computer Science Engineering</h3>
+                                        <p>Grade: 8.91</p>
+                                    </div>
+                                    <div class="edubox">
+                                        <div class="year2">
+                                            <i class='bx bxs-calendar'>2020 - 2022</i>
+                                            <h3>Chameli Devi Public School Indore - 11th & 12th (PCM)</h3>
+                                            <p>Grade: 92.8%</p>
+                                        </div>
+                                    </div>
+                                    <div class="edubox">
+                                        <div class="year3">
+                                            <i class='bx bxs-calendar'>2015 - 2020</i>
+                                            <h3>Chameli Devi Public School Indore - 6th & 10th</h3>
+                                            <p>Grade: 92.8%</p>
+                                        </div>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="experience padd-15">
+                            <h3 class="title">Experience</h3>
+                            <div class="row">
+                                <div class="edu-content">
+                                    <div class="edubox2">
+                                        <div class="year1">
+                                            <i class='bx bxs-calendar'>February 2024 - Present</i>
+                                            <h3>Design Intern</h3>
+                                            <p>Linkup</p>
+                                        </div>
+                                    </div>
+                                    <div class="year2e">
+                                        <i class='bx bxs-calendar'>August 2023 - Present</i>
+                                        <h3>Core Committee Member</h3>
+                                        <p>IEEE Computer Society VIT</p>
+                                    </div>
+                                    <div class="edubox">
+                                        <div class="year3">
+                                            <i class='bx bxs-calendar'>May 2023 - Present</i>
+                                            <h3>Core Committee Member</h3>
+                                            <p>VIT Trekking Club</p>
+                                        </div>
+                                    </div>
+                                    <div class="edubox">
+                                        <div class="year3">
+                                            <i class='bx bxs-calendar'>March 2023 - Present</i>
+                                            <h3>Senior Core Member</h3>
+                                            <p>Apple Developers Group VIT</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>My<span> Services</span></h2>
+        </div>
+        <div class="services-container">
+            <div class="services-box">
+                <i class='bx bx-code-alt'></i>
+                <h3>Web Development</h3>
+                <p>Specializing in web development, I create customized, responsive, and visually appealing websites. From conceptualization to execution, I leverage the latest technologies and industry standards to craft engaging digital experiences that meet your unique needs. Let's collaborate to bring your online vision to life.</p>
+                
+            </div>
+
+            <div class="services-box">
+                <i class='bx bxl-figma' ></i>
+                <h3>UI/UX Design</h3>
+                <p>With a passion for design and user experience, I specialize in creating intuitive and visually striking interfaces. Through meticulous attention to detail and user-centric design principles, I ensure that every interaction is seamless and delightful. Let's work together to create designs that leave a lasting impression.</p>
+                
+            </div>
+
+            <div class="services-box">
+                <i class='bx bx-video' ></i>
+                <h3>Video Editing</h3>
+                <p>As a skilled video editor, I bring stories to life through captivating visuals and seamless editing. Whether it's for personal projects or professional endeavors, I am dedicated to enhancing your footage to make it compelling and impactful. Let's collaborate to transform your raw footage into polished and engaging videos that resonate with your audience.</p>
+                
+            </div>
+        </div>
+    </section>
+    <section class="projects" id="projects">
+        <div class="section-title">
+            <h2>My<span> Projects</span></h2>
+        </div>
+        <div class="project-container">
+            <div class="project-box">
+                <img src="p1.png" alt="">
+                <div class="project-layer">
+                    <h2>Job Search Website</h2>
+                    <p>Streamlining job hunting: Our comprehensive job search website connects talent with opportunity effortlessly.</p>
+                    <a href="https://www.figma.com/file/sTlJbXVDxzg4Ss9eu1TSJ3/Untitled?type=design&node-id=0%3A1&mode=design&t=TEI6xijz4D1h3Ou2-1" target="_blank"><i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+            <div class="project-box">
+                <img src="p2.png" alt="">
+                <div class="project-layer">
+                    <h2>Smart Fridge Touch-Screen Display</h2>
+                    <p>Smart fridge boasts intuitive design for easy use across generations.</p>
+                    <a href="https://www.figma.com/file/h2tjIKRDbDgwCFiQlraES1/Hexathon23?type=design&node-id=0%3A1&mode=design&t=o8H5Zb4ofjkvvzcH-1s" target="_blank"><i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+            
+            
+            <div class="project-box">
+                <img src="p4.jpeg" alt="">
+                <div class="project-layer">
+                    <h2>Coffe Shop Logo</h2>
+                    <p>Bluelearn's logo design captures cozy ambiance and coffee's rich aroma.</p>
+                    <a href="https://www.figma.com/file/SqS6ApBOHfiYfrsg4Rab2p/Project1_logo_design?type=design&node-id=0%3A1&mode=design&t=tHrsmJ0UYy0XX9xP-1" target="_blank"><i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+            <div class="project-box">
+                <img src="p5.png" alt="">
+                <div class="project-layer">
+                    <h2>One-Stop Health Care Service</h2>
+                    <p>Your comprehensive health care solution, all in one convenient website.</p>
+                    <a href="https://www.figma.com/file/Lsccz0s0G23NH1IZPE2voj/hackbattle23?type=design&node-id=0%3A1&mode=design&t=1FsSOBzFVn7tsv6i-1" target="_blank"><i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+            <div class="project-box">
+                <img src="p6.png" alt="">
+                <div class="project-layer">
+                    <h2>Chat with Mentor UI/UX</h2>
+                    <p>Your AI Mentor for Personal and Professional Growth</p>
+                    <a href="https://www.figma.com/file/dxdA0MMfYzxW2y4Mav2yf3/Untitled?type=design&node-id=0%3A1&mode=design&t=q4Eil2UGOyKdFJoU-1" target="_blank"><i class='bx bx-link-external' ></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contact<span> Me!</span></h2>
+        </div>
+        <form action="#" name="contact-us">
+            <div class="inp-box">
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    <input type="text" id="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="inp-box">
+                    <input type="text" id="phone" name="phone" placeholder="Mobile Number" required>
+                    <input type="text" id="subject" name="subject" placeholder="Email Subject" required>
+            </div>
+            <textarea id="" cols="30" rows="10" id="message" name="message" placeholder="Your Message" required></textarea>
+            <input type="submit" id="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 by Parnika Kothari | All Rights Reserved</p>
+        </div>
+        <div class="footer-icontop">
+            <a href="#home"><i class='bx bx-up-arrow-alt' ></i></a>
+        </div>
+    </footer>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxUM5KP0s-gfnR54SD5lvlY8VSEaJbCJWEnt3JW86Tvp8Cx00oPL3n4ZbscJ4Ag2ODE/exec'
+        const form = document.forms['contact-us']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => 
+            form.reset(),
+            console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="mainportjs.js"></script>
+</body>
+</html>

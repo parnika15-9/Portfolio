@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Java Script </title>
+<style>
+body{
+    padding:8px;
+    background-color:beige;
+    margin:2px;
+}
+.formdesign{
+    padding:12px 20px;
+    border-radius:2px;
+    width:50%;
+    
+}
+
+.formdesign input{
+    border:1px solid blue;
+    margin:14px;
+}
+.but{
+    border-radius:10px;
+    width:100px;
+    background-color:green;
+}
+input[type="button"]{
+    border-radius:10px;
+    width:100px;
+    background-color:green;
+    border:1px solid white;
+}
+    
+
+input[type="text"]
+input[type="tel"]
+input[type="email"]
+{
+   border:1px solid blue;
+   margin:14px;
+}
+</style>
+</head>
+<body>
+<form action="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
+<div class="formdesign" id="name">
+<label>Name</label>
+<input type="text" name="fname" required><span class="formerror"></span>
+</div>
+<div class="formdesign">
+<label>Email</label>
+<input type="email">
+</div>
+<div class="formdesign">
+<label>Phone</label>
+<input type="tel">
+</div>
+<div class="formdesign">
+<label>password</label>
+<input type="text">
+</div>
+<div class="formdesign">
+<label>confirm password</label>
+<input type="text">
+</div>
+<div class="but" name=submit>
+<input type="button" value="submit">
+</div>
+</form>
+</body>
+<script>
+function seterror(id,error){
+    element=document.getElementById(id);
+    element.getElementsByClassName('formerror')[0].innerHTML=error;
+}
+function validateForm(){
+       var returnval=true;
+       var name=document.forms['myForm']["fname"].value;
+       if(name.length<5){
+            seterror("name","Length of name is too short");
+            returnval=false;
+        }
+      return returnval;
+}
+</script>  
+  
+
+
+</html>
